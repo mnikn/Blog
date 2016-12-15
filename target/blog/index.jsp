@@ -1,5 +1,1 @@
-<html>
-<body>
-<h2>Goodbye World!</h2>
-</body>
-</html>
+<c:redirect url="/admin" />

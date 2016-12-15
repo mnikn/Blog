@@ -1,8 +1,37 @@
 nav {
-    background-color: #171717;
-    color: white;
+    position: absolute;
+    background-color: #26252c;
+    color: #9ea3a8;
+    float: left;
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
-
+nav hr {
+    size: 1px;
+}
+nav ul {
+    list-style: none;
+    margin-left: 1%;
+}
+nav ul .subItem {
+    margin-left: 5%;
+    display: none;
+}
+nav li {
+    cursor: pointer;
+    line-height: 32px;
+}
+nav #home {
+}
+nav #article {
+}
+nav #comment {
+}
+nav li:hover {
+    color: #49aa2c;
+    background-color: #1e1d22;
+}
 .content {
-    background-color: lawngreen;
 }
