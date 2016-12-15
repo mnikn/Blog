@@ -3,8 +3,6 @@ body {
     display: -webkit-flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: -4px;
-    padding: -4px;
 }
 header {
     display: flex;
