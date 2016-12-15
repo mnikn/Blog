@@ -9,7 +9,7 @@
               href="<c:url value="/resources/stylesheet/admin.css" /> ">
         <script>
             function onArticleClick() {
-                var subItems = document.getElementsByClassName("subItem");
+                var subItems = document.getElementsByClassName("article-subItem");
                 for(var i = 0;i < subItems.length;++i){
                     if(subItems[i].style.display == "block"){
                         subItems[i].style.display = "none";
@@ -23,23 +23,30 @@
         <jsp:invoke fragment="extraHeadContent" />
     </jsp:attribute>
     <jsp:attribute name="navContent">
-        <nav>
-            <ul>
-                <li id="home">后台首页</li><hr>
-                <li id="article" onclick="onArticleClick()">文章</li><hr>
-                <div class="subItem">
-                    <li>发布文章</li><hr>
-                    <li>文章管理</li><hr>
-                    <li>草稿夹</li><hr>
-                </div>
-                <li id="comment">评论管理</li>
-            </ul>
-        </nav>
-    </jsp:attribute>
-    <jsp:body>
-        <div class="content">
-            <jsp:doBody />
+        <header>
+            <button id="admin-system">后台管理系统</button>
+            <div class="blog-nav">
+                <button>首页</button>
+                <button>登出</button>
+            </div>
+        </header>
+        <div class="body-content">
+            <nav>
+                <ul>
+                    <li>后台首页</li><hr>
+                    <li id="admin-article" onclick="onArticleClick()">文章</li><hr>
+                    <div class="article-subItem">
+                        <li>发布文章</li><hr>
+                        <li>文章管理</li><hr>
+                        <li>草稿夹</li><hr>
+                    </div>
+                    <li>评论管理</li>
+                </ul>
+            </nav>
+            <main>
+                <jsp:doBody />
+            </main>
         </div>
-    </jsp:body>
+    </jsp:attribute>
 
 </template:main>
