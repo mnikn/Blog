@@ -1,0 +1,10 @@
+.article-title {
+    font-size: 25px;
+    text-align: center;
+}
+.article-information {
+    margin-bottom: 32px;
+    color: #87878a;
+    font-size: 13px;
+    text-align: center;
+}

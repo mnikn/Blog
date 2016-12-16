@@ -19,6 +19,9 @@
                     }
                 }
             }
+            function home() {
+                window.location = "http://localhost:8080/home";
+            }
             function logout() {
                 window.location = "http://localhost:8080/login?logout";
             }
@@ -29,7 +32,7 @@
         <header>
             <button id="admin-system">后台管理系统</button>
             <div class="blog-nav">
-                <button>首页</button>
+                <button onclick="home()">首页</button>
                 <button onclick="logout()">登出</button>
             </div>
         </header>

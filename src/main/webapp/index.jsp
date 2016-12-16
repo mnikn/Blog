@@ -1,1 +1,1 @@
-<c:redirect url="/admin" />
+<c:redirect url="/home" />
