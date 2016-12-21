@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="421212f8-7f1d-48b0-b36e-d1348d31a116" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/db/ArticleDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/db/DbUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/admin.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/admin/admin.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/article.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/blog/article.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/blog.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/blog/blog.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/login.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/stylesheet/admin/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Blog_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Blog_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blog.iml" afterPath="$PROJECT_DIR$/Blog.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/blog/HomeServlet.java" afterPath="$PROJECT_DIR$/src/main/java/blog/HomeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Article.java" afterPath="$PROJECT_DIR$/src/main/java/model/Article.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/blog/article.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/blog/article.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/blog/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/blog/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/template/admin.tag" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/template/admin.tag" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/template/blog.tag" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/template/blog.tag" />
-    </list>
+    <list default="true" id="421212f8-7f1d-48b0-b36e-d1348d31a116" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1257,12 +1238,12 @@
       <workItem from="1482201980560" duration="4352000" />
       <workItem from="1482209388462" duration="633000" />
       <workItem from="1482210343290" duration="2269000" />
-      <workItem from="1482287616726" duration="9925000" />
+      <workItem from="1482287616726" duration="10430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71830000" />
+    <option name="totallyTimeSpent" value="72335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
