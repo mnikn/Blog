@@ -10,7 +10,7 @@ import java.io.IOException;
  *         Created at 2016/12/15
  */
 @WebFilter(
-        urlPatterns = {"/admin"}
+        urlPatterns = {"/admin/*"}
 )
 public class AuthenticationFilter implements Filter {
 

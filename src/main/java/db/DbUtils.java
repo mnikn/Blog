@@ -52,7 +52,7 @@ public class DbUtils {
     public static int executeDataChange(String sql){
         int changedNum = 0;
         try{
-            changedNum = getStatement().executeUpdate(sql);
+            changedNum = getStatement().executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException e) {
             e.printStackTrace();
         }

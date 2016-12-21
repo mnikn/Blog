@@ -19,11 +19,17 @@
                     }
                 }
             }
+            function admin() {
+                window.location = window.location.origin + "/admin";
+            }
             function home() {
-                window.location = "http://localhost:8080/home";
+                window.location = window.location.origin + "/home";
+            }
+            function postArticle() {
+                window.location = window.location.origin + "/admin/post-article";
             }
             function logout() {
-                window.location = "http://localhost:8080/login?logout";
+                window.location = window.location.origin + "/login?logout";
             }
         </script>
         <jsp:invoke fragment="extraHeadContent" />
@@ -39,10 +45,10 @@
         <div class="body-content">
             <nav>
                 <ul>
-                    <li>后台首页</li><hr>
+                    <li onclick="admin()">后台首页</li><hr>
                     <li id="admin-article" onclick="onArticleClick()">文章</li><hr>
                     <div class="article-subItem">
-                        <li>发布文章</li><hr>
+                        <li id="post-article" onclick="postArticle()">发布文章</li><hr>
                         <li>文章管理</li><hr>
                         <li>草稿夹</li><hr>
                     </div>

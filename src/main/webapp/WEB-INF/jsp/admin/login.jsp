@@ -9,6 +9,6 @@
         <c:if test="${loginFailed}">
             <p class="error-hint">登录错误，请输入正确的用户名和密码！</p>
         </c:if>
-        <input id="submit" name="submit" type="submit">
+        <input class="input-submit" name="Submit" type="submit">
     </form>
 </template:main>

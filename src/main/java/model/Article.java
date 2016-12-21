@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,7 +11,7 @@ public class Article {
     private String type;
     private String content;
     private String title;
-    private ArrayList<String> labels;
+    private String[] labels;
     private Date createdAt;
 
     public String getType() {
@@ -39,11 +38,11 @@ public class Article {
         this.title = title;
     }
 
-    public ArrayList<String> getLabels() {
+    public String[] getLabels() {
         return labels;
     }
 
-    public void setLabels(ArrayList<String> labels) {
+    public void setLabels(String[] labels) {
         this.labels = labels;
     }
 

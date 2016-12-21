@@ -34,6 +34,7 @@ header .blog-nav button {
     color: black;
     border-radius: 20px;
     margin-right: 16px;
+    cursor: pointer;
 }
 
 .body-content {
