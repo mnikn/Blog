@@ -1,7 +1,7 @@
 <%--@elvariable id="loginFailed" type="java.lang.Boolean"--%>
 <template:main htmlTitle="login">
     <link rel="stylesheet"
-          href="<c:url value="/resources/stylesheet/login.css" /> ">
+          href="<c:url value="/resources/stylesheet/admin/login.css" /> ">
     <header>博客</header>
     <form method="post" action="<c:url value="/login" />">
         <input name="username" type="text" placeholder="请输入用户名" title="用户名">

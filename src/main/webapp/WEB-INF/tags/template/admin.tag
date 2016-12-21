@@ -6,7 +6,7 @@
 <template:main htmlTitle="${htmlTitle}">
     <jsp:attribute name="headContent">
         <link rel="stylesheet" type="text/css"
-              href="<c:url value="/resources/stylesheet/admin.css" /> ">
+              href="<c:url value="/resources/stylesheet/admin/admin.css" /> ">
         <script>
             function onArticleClick() {
                 var subItems = document.getElementsByClassName("article-subItem");

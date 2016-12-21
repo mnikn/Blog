@@ -71,3 +71,4 @@ target/blog/WEB-INF/tags/
 target/blog/resources/
 target/classes/
 target/generated-sources/
+!/src/main/java/blog/HomeServlet.java

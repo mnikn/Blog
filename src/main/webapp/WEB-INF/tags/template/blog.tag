@@ -6,7 +6,7 @@
 <template:main htmlTitle="${htmlTitle}">
     <jsp:attribute name="headContent">
         <link rel="stylesheet" type="text/css"
-              href="<c:url value="/resources/stylesheet/blog.css" /> ">
+              href="<c:url value="/resources/stylesheet/blog/blog.css" /> ">
         <jsp:invoke fragment="extraHeadContent" />
     </jsp:attribute>
     <jsp:body>

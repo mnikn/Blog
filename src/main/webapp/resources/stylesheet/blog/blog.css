@@ -26,18 +26,18 @@ body {
 nav ul {
     display: flex;
     display: -webkit-flex;
-    justify-content: space-between;
     list-style: none;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 180px;
+    padding-right: 180px;
     margin-bottom: 200px;
 }
 nav li {
+    margin-left: 20px;
     cursor: pointer;
     text-decoration: underline;
 }
 main {
-    width: 600px;
+    width: 700px;
     flex: 1;
 }
 
