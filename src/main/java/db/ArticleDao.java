@@ -5,6 +5,8 @@ import model.Article;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author zhengzhizhao
@@ -15,6 +17,36 @@ public class ArticleDao {
     public static final int FIND_BY_TITLE = 0;
     public static final int FIND_BY_TYPE = 1;
 
+    public static List<Article> getAllArticles(){
+        List<Article> articles = new ArrayList<>();
+        ResultSet resultSet = DbUtils.executeQuery("SELECT * FROM blog.article");
+        try {
+            while (resultSet.next()){
+                articles.add(findArticle(resultSet));
+            }
+            resultSet.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return articles;
+    }
+
+    public static Article getArticle(long id){
+        ResultSet resultSet =
+                DbUtils.executeQuery("SELECT * FROM blog.article where id = " + id);
+        try {
+            resultSet.next();
+            Article article = findArticle(resultSet);
+            resultSet.close();
+            return article;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static Article getArticle(String findText,int flag){
         ResultSet resultSet = null;
         switch (flag){
@@ -24,7 +56,11 @@ public class ArticleDao {
             case FIND_BY_TYPE:
                 resultSet =  DbUtils.executeQuery("SELECT * FROM blog.article where type = " + findText);
                 break;
-
+        }
+        try {
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return findArticle(resultSet);
     }
@@ -52,14 +88,13 @@ public class ArticleDao {
     private static Article findArticle(ResultSet resultSet){
         Article article = new Article();
         try {
-            while(resultSet.next()){
+            if(!resultSet.isAfterLast()){
                 article.setId(resultSet.getLong("id"));
                 article.setTitle(resultSet.getString("title"));
                 article.setContent(resultSet.getString("content"));
                 article.setType(resultSet.getString("type"));
                 article.setCreatedAt(resultSet.getDate("created_at"));
             }
-            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

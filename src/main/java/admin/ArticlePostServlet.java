@@ -16,14 +16,19 @@ import java.util.GregorianCalendar;
  *         Created at 2016/12/14
  */
 @WebServlet(
-        name = "postArticleServlet",
-        urlPatterns = "/admin/post-article"
+        name = "articlePostServlet",
+        urlPatterns = "/admin/article-post"
 )
-public class PostArticleServlet extends HttpServlet{
+public class ArticlePostServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/admin/postArticle.jsp")
+        if(req.getParameter("edit") != null){
+            Article article = ArticleDao.getArticle(Long.parseLong(req.getParameter("id")));
+            req.setAttribute("article",article);
+        }
+
+        req.getRequestDispatcher("/WEB-INF/jsp/admin/articlePost.jsp")
                 .forward(req,resp);
     }
 

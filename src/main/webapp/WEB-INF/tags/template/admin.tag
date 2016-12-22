@@ -26,7 +26,10 @@
                 window.location = window.location.origin + "/home";
             }
             function postArticle() {
-                window.location = window.location.origin + "/admin/post-article";
+                window.location = window.location.origin + "/admin/article-post";
+            }
+            function manageArticle() {
+                window.location = window.location.origin + "/admin/article-manage";
             }
             function logout() {
                 window.location = window.location.origin + "/login?logout";
@@ -49,7 +52,7 @@
                     <li id="admin-article" onclick="onArticleClick()">文章</li><hr>
                     <div class="article-subItem">
                         <li id="post-article" onclick="postArticle()">发布文章</li><hr>
-                        <li>文章管理</li><hr>
+                        <li onclick="manageArticle()">文章管理</li><hr>
                         <li>草稿夹</li><hr>
                     </div>
                     <li>评论管理</li>

@@ -1,7 +1,6 @@
-package blog;
+package admin;
 
 import db.ArticleDao;
-import model.Article;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,19 +11,17 @@ import java.io.IOException;
 
 /**
  * @author zhengzhizhao
- *         Created at 2016/12/16
+ *         Created at 2016/12/22
  */
 @WebServlet(
-        urlPatterns = "/home/article"
+        name = "articleManageServlet",
+        urlPatterns = "/admin/article-manage"
 )
-
-public class ArticleServlet extends HttpServlet{
+public class ArticleManageServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Article article =
-                ArticleDao.getArticle(Long.parseLong(req.getParameter("id")));
-        req.setAttribute("article",article);
-        req.getRequestDispatcher("/WEB-INF/jsp/blog/article.jsp")
+        req.setAttribute("articles", ArticleDao.getAllArticles());
+        req.getRequestDispatcher("/WEB-INF/jsp/admin/articleManage.jsp")
                 .forward(req,resp);
     }
 }

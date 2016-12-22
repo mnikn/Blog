@@ -1,3 +1,4 @@
+<%--@elvariable id="article" type="model.Article"--%>
 <template:admin htmlTitle="admin">
     <style>
         #body-content {
@@ -33,15 +34,18 @@
     <div id="body-content">
         <form method="post">
             <label>
-                文章标题: <input class="article-information" name="article-title" type="text">
+                文章标题: <input class="article-information" name="article-title"
+                             type="text" value="${article.title}">
             </label><br><br>
             <label>
-                文章类型: <input class="article-information" name="article-type" type="text">
+                文章类型: <input class="article-information" name="article-type"
+                             type="text" value="${article.type}">
             </label><br><br>
             <label>
-                文章标签: <input class="article-information" name="article-labels" type="text">
+                文章标签: <input class="article-information" name="article-labels"
+                             type="text" value="${article.labels}">
             </label><br><br>
-            <textarea name="article-content" id="article-input"></textarea>
+            <textarea name="article-content" id="article-input">${article.content}</textarea>
             <input class="input-submit" name="Submit" type="submit" onclick="post()">
         </form>
     </div>

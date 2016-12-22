@@ -2,7 +2,7 @@
 <template:blog htmlTitle="Kn's world">
     <script>
         function toArticle(id){
-            window.location = window.location.href + "/article/" + id;
+            window.location = window.location.href + "/article?id=" + id;
         }
     </script>
     <link rel="stylesheet"
