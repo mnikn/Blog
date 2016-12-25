@@ -31,7 +31,7 @@
                 <td>${article.type}</td>
                 <td>${article.labels}</td>
                 <td>
-                    <a href="<c:url value="/admin/article-post?edit&id=${article.id}" /> ">
+                    <a href="<c:url value="/admin/article-post?id=${article.id}" /> ">
                         编辑
                     </a>
                 </td>

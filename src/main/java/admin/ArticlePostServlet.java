@@ -23,10 +23,24 @@ public class ArticlePostServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getParameter("edit") != null){
-            Article article = ArticleDao.getArticle(Long.parseLong(req.getParameter("id")));
-            req.setAttribute("article",article);
+        Article article = new Article();
+        if(req.getParameter("id") != null){
+            article = ArticleDao.getArticle(Long.parseLong(req.getParameter("id")));
         }
+
+        String content = req.getParameter("article-content");
+
+        if(req.getParameter("editing") != null){
+            req.setAttribute("articleContent",req.getParameter("article-content"));
+            req.getRequestDispatcher("/WEB-INF/jsp/admin/articleEdit.jsp")
+                    .forward(req,resp);
+            return;
+        }
+
+        if(content != null){
+            article.setContent(content);
+        }
+        req.setAttribute("article",article);
 
         req.getRequestDispatcher("/WEB-INF/jsp/admin/articlePost.jsp")
                 .forward(req,resp);
@@ -35,6 +49,9 @@ public class ArticlePostServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req,resp);
+
+        if(req.getParameter("editing") != null) return;
+
         Article article = new Article();
         article.setTitle(req.getParameter("article-title"));
         article.setType(req.getParameter("article-type"));
