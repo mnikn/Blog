@@ -1,23 +1,39 @@
-body {
+*{
+    font-size: 1.1rem;
     color: black;
-    font-size: 15px;
-    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    margin: -4px;
-    padding: -4px;
+    font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+body {
+    height: 100vh;
+    width: 100vw;
 }
 button {
+    cursor: pointer;
+    border: none;
     outline: none;
 }
-.input-submit {
-    height: 50px;
-    width: 200px;
-    border-radius: 5px;
-    font-size: 15px;
-    border: none;
-    background-color: #3fa4de;
-    color: white;
+hr {
+    color: #dbdbdb;
 }
-.input-submit:hover {
+h1 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.2rem;
+}
+input[type=submit] {
+    width: 5vw;
+    height: 5vh;
+    margin-top: 1vh;
+    background-color: #dbdbdb;
+    border: none;
+    border-radius: 3vw;
+    -moz-border-radius: 3vw;
+    -webkit-border-radius: 3vw;
+    font-size: 0.8rem;
     cursor: pointer;
-    background-color: #2e78a1
+    outline: none;
+}
+input[type=submit]:hover {
+    background-color: #b9b9b9;
 }

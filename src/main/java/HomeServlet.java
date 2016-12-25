@@ -1,5 +1,3 @@
-package admin;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +7,15 @@ import java.io.IOException;
 
 /**
  * @author zhengzhizhao
- *         Created at 2016/12/14
+ *         Created at 2016/12/25
  */
 @WebServlet(
-        name = "adminServlet",
-        urlPatterns = "/admin"
+        name = "homeServlet",
+        urlPatterns = ""
 )
-public class AdminServlet extends HttpServlet{
-
+public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/admin/admin.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req,resp);
     }
 }

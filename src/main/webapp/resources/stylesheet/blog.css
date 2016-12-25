@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    display: -webkit-flex;
+    padding: -4px;
+    margin: -4px;
+}
+.nav-sidebar {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 20vw;
+}
+.nav-sidebar hr {
+    width: 15vw;
+}
+.nav-button-group {
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+}
+.nav-button-group button {
+    background-color: #2c2b32;
+    color: white;
+    margin-bottom: 1vh;
+    width: 7vw;
+    height: 5vh;
+}
+.nav-button-group button:hover {
+    border: solid 2px #26252c;
+    background-color: white;
+    color: black;
+}
+
+.form-search {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+}
+input[type=search] {
+    width: 15vw;
+}
+
+#sidebar-line {
+    width: 1px;
+}
+main {
+    padding: 5vh 5vw;
+    flex: 1;
+}
