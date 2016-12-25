@@ -1,3 +1,5 @@
+package admin;
+
 /**
  * @author zhengzhizhao
  *         Created at 2016/12/25

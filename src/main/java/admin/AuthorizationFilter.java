@@ -1,3 +1,5 @@
+package admin;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import java.io.IOException;
  *         Created at 2016/12/25
  */
 @WebFilter(
+        filterName = "authorizationFilter",
         urlPatterns = "/admin/*"
 )
 public class AuthorizationFilter implements Filter {
@@ -25,7 +28,9 @@ public class AuthorizationFilter implements Filter {
         if(session == null || session.getAttribute("username") == null){
             ((HttpServletResponse) servletResponse).sendRedirect("login");
         }
-        filterChain.doFilter(servletRequest,servletResponse);
+        else{
+            filterChain.doFilter(servletRequest,servletResponse);
+        }
     }
 
     @Override

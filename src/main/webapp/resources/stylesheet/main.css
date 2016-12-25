@@ -1,4 +1,4 @@
-*{
+* {
     font-size: 1.1rem;
     color: black;
     font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -7,10 +7,8 @@ body {
     height: 100vh;
     width: 100vw;
 }
-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
+button:hover {
+    background-color: #b9b9b9;
 }
 hr {
     color: #dbdbdb;
@@ -21,7 +19,7 @@ h1 {
 h3 {
     font-size: 1.2rem;
 }
-input[type=submit] {
+button,input[type=submit] {
     width: 5vw;
     height: 5vh;
     margin-top: 1vh;
@@ -34,6 +32,6 @@ input[type=submit] {
     cursor: pointer;
     outline: none;
 }
-input[type=submit]:hover {
+button:hover,input[type=submit]:hover {
     background-color: #b9b9b9;
 }

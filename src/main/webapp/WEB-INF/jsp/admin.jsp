@@ -1,3 +1,3 @@
-<template:base htmlTitle="admin">
-
-</template:base>
+<template:admin htmlTitle="admin">
+    Dock
+</template:admin>
