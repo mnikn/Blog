@@ -3,15 +3,19 @@
 <%@ attribute name="htmlTitle" type="java.lang.String" required="true" %>
 <%@ include file="/WEB-INF/jsp/base.jsp" %>
 <template:base htmlTitle="${htmlTitle}">
+    <script>
+        function home(){
+            window.location = location.origin;
+        }
+    </script>
     <link rel="stylesheet" href="<c:url value="/resources/stylesheet/blog.css" />">
     <nav class="nav-sidebar">
-        <h1>Kn's Blog</h1><hr>
+        <h1 style="cursor: pointer" onclick="home()">Kn's Blog</h1><hr>
         <nav class="nav-button-group">
-            <button>首页</button>
+            <button onclick="home()">首页</button>
             <button>项目</button>
             <button>关于</button>
         </nav><hr>
-
         <h3>文章分类</h3>
         <nav class="nav-button-group">
             <button>首页</button>
