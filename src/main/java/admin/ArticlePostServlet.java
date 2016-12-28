@@ -9,17 +9,16 @@ import java.io.IOException;
 
 /**
  * @author zhengzhizhao
- *         Created at 2016/12/25
+ *         Created at 2016/12/26
  */
 @WebServlet(
-        name = "adminServlet",
-        urlPatterns = "/admin"
+        name = "articlePostServlet",
+        urlPatterns = "/admin/article/post"
 )
-public class AdminServlet extends HttpServlet {
-
+public class ArticlePostServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/admin/admin.jsp")
+        req.getRequestDispatcher("/WEB-INF/jsp/admin/articlePost.jsp")
                 .forward(req,resp);
     }
 }

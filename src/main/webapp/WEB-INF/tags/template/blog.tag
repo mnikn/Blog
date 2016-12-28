@@ -29,7 +29,7 @@
             <button>项目</button>
             <button>关于</button>
         </nav><hr>
-        <form class="form-search" method="get">
+        <form class="form-search" method="post">
             <input type="search" name="search-content" placeholder="请输入要搜索文章的标题...">
             <input type="submit" name="submit" value="搜索">
         </form>

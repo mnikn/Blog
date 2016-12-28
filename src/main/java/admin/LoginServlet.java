@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect("admin");
             return;
         }
-        req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/admin/login.jsp").forward(req,resp);
     }
 
     @Override
