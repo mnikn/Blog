@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author zhengzhizhao
@@ -21,12 +22,18 @@ public class ArticleDao {
                 articles.add(findArticle(resultSet));
             }
             resultSet.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return articles;
+    }
+
+    public static void updateTypes(){
+        Set<String> set = AccountManager.getTypes();
+        for(Article article : getAllArticles()) {
+            set.add(article.getType());
+        }
     }
 
     public static Article getArticle(long id){
@@ -48,6 +55,7 @@ public class ArticleDao {
                 "INSERT INTO blog.article " +
                         "(intro,md_content,html_content,title,type,created_at)" +
                         " VALUES " + valueString(article));
+        AccountManager.getTypes().add(article.getType());
         System.out.println("insertId: " + insertId);
     }
 

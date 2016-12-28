@@ -1,3 +1,4 @@
+import db.AccountManager;
 import db.ArticleDao;
 import model.Article;
 
@@ -22,7 +23,9 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Article> articles = ArticleDao.getAllArticles();
 
+        ArticleDao.updateTypes();
         req.setAttribute("articles",articles);
+        req.setAttribute("types", AccountManager.getTypes());
         req.getRequestDispatcher("/WEB-INF/jsp/home.jsp")
                 .forward(req,resp);
     }

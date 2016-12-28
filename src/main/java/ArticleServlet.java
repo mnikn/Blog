@@ -1,3 +1,4 @@
+import db.AccountManager;
 import db.ArticleDao;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,7 @@ public class ArticleServlet extends HttpServlet{
         String url = req.getRequestURL().toString();
         long id = Long.parseLong(url.substring(url.lastIndexOf('/') + 1));
         req.setAttribute("article", ArticleDao.getArticle(id));
+        req.setAttribute("types", AccountManager.getTypes());
         req.getRequestDispatcher("/WEB-INF/jsp/article.jsp").forward(req,resp);
     }
 }

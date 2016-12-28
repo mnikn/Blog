@@ -8,6 +8,8 @@
     <title><c:out value="${htmlTitle}" /></title>
     <link rel="stylesheet" type="text/css"
           href="<c:url value="/resources/stylesheet/main.css" /> ">
+    <script type="text/javascript"
+            src="<c:url value="/resources/javascript/jquery-3.1.1.min.js" />"></script>
 </head>
 <body>
     <jsp:doBody />
