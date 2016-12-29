@@ -13,18 +13,22 @@ import java.util.*;
  */
 public class ArticleDao {
     public static List<Article> getAllArticles(){
-        List<Article> articles = new ArrayList<>();
         ResultSet resultSet = DbUtils.executeQuery("SELECT * FROM blog.article");
-        try {
-            while (resultSet.next()){
-                articles.add(findArticle(resultSet));
-            }
-            resultSet.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return getArticles(resultSet);
 
-        return articles;
+    }
+
+    public static List<Article> getArticlesByType(String type){
+        ResultSet resultSet = DbUtils.executeQuery("SELECT * FROM blog.article " +
+                "WHERE type = " + "\"" + type + "\"");
+        return getArticles(resultSet);
+    }
+
+    public static List<Article> getArticlesByLabel(String label){
+        ResultSet resultSet = DbUtils.executeQuery("SELECT * FROM blog.article INNER JOIN " +
+                "blog.label ON blog.article.id = blog.label.article_id " +
+                "WHERE label = " + "\"" + label + "\"");
+        return getArticles(resultSet);
     }
 
     public static void updateTypes(){
@@ -94,6 +98,19 @@ public class ArticleDao {
             e.printStackTrace();
         }
         return article;
+    }
+
+    private static List<Article> getArticles(ResultSet resultSet){
+        List<Article> articles = new ArrayList<>();
+        try {
+            while (resultSet.next()){
+                articles.add(findArticle(resultSet));
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return articles;
     }
 
     private static String valueString(Article article){

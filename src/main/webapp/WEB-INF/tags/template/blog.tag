@@ -11,6 +11,13 @@
                 window.location = window.location.origin;
             });
         });
+
+        function typeArticle(type){
+            window.location = window.location.origin + "?type=" + type;
+        }
+        function labelArticle(label){
+            window.location = window.location.origin + "?label=" + label;
+        }
     </script>
     <link rel="stylesheet" href="<c:url value="/resources/stylesheet/blog.css" />">
     <nav class="nav-sidebar">
@@ -23,14 +30,14 @@
         <h3>文章分类</h3>
         <nav class="nav-button-group">
             <c:forEach items="${types}" var="type">
-                <button>type</button>
+                <button onclick="typeArticle('${type}')">${type}</button>
             </c:forEach>
         </nav><hr>
 
         <h3>标签墙</h3>
         <nav class="nav-button-group">
             <c:forEach items="${labels}" var="label">
-                <button>${label}</button>
+                <button onclick="labelArticle('${label}')">${label}</button>
             </c:forEach>
         </nav><hr>
         <form class="form-search" method="post">
