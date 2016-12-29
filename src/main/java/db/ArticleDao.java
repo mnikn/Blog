@@ -5,9 +5,7 @@ import model.Article;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author zhengzhizhao
@@ -36,13 +34,33 @@ public class ArticleDao {
         }
     }
 
+    public static void updateLabelTypes(){
+        Set<String> labels = AccountManager.getLabelTypes();
+        ResultSet resultSet = DbUtils.executeQuery("SELECT article_id,label FROM blog.article INNER JOIN " +
+                "blog.label ON blog.article.id = blog.label.article_id");
+        try {
+            while(resultSet.next()){
+                labels.add(resultSet.getString("label"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static Article getArticle(long id){
         ResultSet resultSet =
                 DbUtils.executeQuery("SELECT * FROM blog.article where id = " + id);
         try {
             resultSet.next();
             Article article = findArticle(resultSet);
+            ResultSet labelSet = DbUtils.executeQuery("SELECT article_id,label FROM blog.article INNER JOIN " +
+                    "blog.label ON blog.article.id = " + article.getId());
+
+            List<String> strings = new ArrayList<>();
+            while(labelSet.next()) strings.add(labelSet.getString("label"));
+            article.setLabels(strings);
             resultSet.close();
+            labelSet.close();
             return article;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,6 +74,7 @@ public class ArticleDao {
                         "(intro,md_content,html_content,title,type,created_at)" +
                         " VALUES " + valueString(article));
         AccountManager.getTypes().add(article.getType());
+        updateLabelTypes();
         System.out.println("insertId: " + insertId);
     }
 

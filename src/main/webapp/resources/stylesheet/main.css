@@ -22,7 +22,9 @@ h2 {
 h3 {
     font-size: 1.2rem;
 }
-button,input[type=submit] {
+
+
+button,input[type=submit],input[type=button] {
     width: 5vw;
     height: 5vh;
     margin-top: 1vh;
@@ -35,6 +37,7 @@ button,input[type=submit] {
     cursor: pointer;
     outline: none;
 }
-button:hover,input[type=submit]:hover {
+
+button:hover,input[type=submit]:hover,input[type=button]:hover {
     background-color: #b9b9b9;
 }

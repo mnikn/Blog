@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zhengzhizhao
@@ -14,6 +15,7 @@ public class Article {
     private String htmlContent;
     private String type;
     private Date createdAt;
+    private List<String> labels;
 
     public long getId() {
         return id;
@@ -69,5 +71,13 @@ public class Article {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public List<String> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<String> labels) {
+        this.labels = labels;
     }
 }

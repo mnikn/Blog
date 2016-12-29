@@ -23,6 +23,7 @@ public class ArticleServlet extends HttpServlet{
         long id = Long.parseLong(url.substring(url.lastIndexOf('/') + 1));
         req.setAttribute("article", ArticleDao.getArticle(id));
         req.setAttribute("types", AccountManager.getTypes());
+        req.setAttribute("labels", AccountManager.getLabelTypes());
         req.getRequestDispatcher("/WEB-INF/jsp/article.jsp").forward(req,resp);
     }
 }

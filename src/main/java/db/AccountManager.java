@@ -8,12 +8,14 @@ import java.util.HashSet;
  */
 public class AccountManager {
     private static HashSet<String> types = new HashSet<>();
+    private static HashSet<String> labelTypes = new HashSet<>();
 
     public static HashSet<String> getTypes() {
         return types;
     }
 
-    public static void setTypes(HashSet<String> types) {
-        AccountManager.types = types;
+    public static HashSet<String> getLabelTypes(){
+        return labelTypes;
     }
+
 }

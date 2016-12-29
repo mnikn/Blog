@@ -24,8 +24,10 @@ public class HomeServlet extends HttpServlet {
         List<Article> articles = ArticleDao.getAllArticles();
 
         ArticleDao.updateTypes();
+        ArticleDao.updateLabelTypes();
         req.setAttribute("articles",articles);
         req.setAttribute("types", AccountManager.getTypes());
+        req.setAttribute("labels", AccountManager.getLabelTypes());
         req.getRequestDispatcher("/WEB-INF/jsp/home.jsp")
                 .forward(req,resp);
     }

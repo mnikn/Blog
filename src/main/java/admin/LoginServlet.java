@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
         }
         else{
             req.setAttribute("loginFailed",true);
-            req.getRequestDispatcher("/WEB-INF/jsp/login.jsp")
+            req.getRequestDispatcher("/WEB-INF/jsp/admin/login.jsp")
                     .forward(req,resp);
         }
     }
