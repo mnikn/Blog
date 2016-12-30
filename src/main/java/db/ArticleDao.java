@@ -90,6 +90,25 @@ public class ArticleDao {
         updateLabelTypes();
     }
 
+    public static void updateArticle(Article article){
+        DbUtils.executeDataChange(
+                "UPDATE blog.article SET " +
+                        "intro = " + "\"" + article.getIntro() + "\"" + "," +
+                        "md_content = " + "\"" + article.getMdContent() + "\" " + "," +
+                        "html_content = " + "\"" + article.getHtmlContent() + "\" " + "," +
+                        "title = " + "\"" + article.getTitle() + "\" " + "," +
+                        "type = " + "\"" + article.getType() + "\" " + "," +
+                        "created_at = " + "\"" + new SimpleDateFormat("yyyy-MM-dd").format(article.getCreatedAt()) + "\" " +
+                        "WHERE id = " + article.getId());
+        for(String label : article.getLabels()){
+            DbUtils.executeDataChange(
+                    "UPDATE blog.label SET " + "label = " + "\"" + label + "\"" +
+                            " WHERE article_id = " + article.getId() + ";");
+        }
+        AccountManager.getTypes().add(article.getType());
+        updateLabelTypes();
+    }
+
     public static void deleteArticle(long id){
         DbUtils.executeDataChange("DELETE FROM blog.label WHERE article_id = " + id);
         DbUtils.executeDataChange("DELETE FROM blog.article WHERE id = " + id);

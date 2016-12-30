@@ -32,8 +32,8 @@
                         label,
                     </c:forEach>
                 </td>
-                <td><a href="<c:url value="/admin/article/post"/>">编辑</a>,
-                    <a href="<c:url value="/admin/article/list?delete_id=${article.id}"/>">删除</a>,
+                <td><a href="<c:url value="/admin/article/post?id=${article.id}"/>">编辑</a>,
+                    <a href="<c:url value="/admin/article/list?delete_id=${article.id}"/>">删除</a>
                 </td>
             </tr>
         </c:forEach>

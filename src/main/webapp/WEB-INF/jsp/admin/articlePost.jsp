@@ -1,3 +1,4 @@
+<%--@elvariable id="article" type="model.Article"--%>
 <%--@elvariable id="types" type="java.util.Set<java.lang.String>"--%>
 <%--@elvariable id="labels" type="java.util.Set<java.lang.String>"--%>
 <template:admin htmlTitle="admin">
@@ -38,19 +39,27 @@
     </script>
 
 
-    <form method="post">
+    <form method="post" action="
+            <c:choose>
+                <c:when test="${article != null}">
+                     <c:url value="/admin/article/post?id=${article.id}"/>
+                </c:when>
+                <c:otherwise>
+                    <c:url value="/admin/article/post"/>
+                </c:otherwise>
+            </c:choose>">
         <label>
-            文章标题：<input type="text" name="article-title">
+            文章标题：<input type="text" name="article-title" value="${article.title}">
         </label>
         <label>
-            文章分类：<input type="text" name="article-type" id="article-type">
+            文章分类：<input type="text" name="article-type" id="article-type" value="${article.type}">
             <input type="button" id="type-button" value="选择">
         </label>
         <label>
-            文章标签：<input type="text" name="article-labels" id="article-labels">
+            文章标签：<input type="text" name="article-labels" id="article-labels" value="${article.labelString}">
             <input type="button" id="label-button" value="选择">
         </label>
-        <textarea name="article-content"></textarea>
+        <textarea name="article-content">${article.mdContent}</textarea>
         <input type="submit" name="Submit">
     </form>
 

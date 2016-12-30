@@ -18,7 +18,10 @@ public class DbUtils {
             String driver = "com.mysql.jdbc.Driver";
             try {
                 Class.forName(driver);
-                connection = DriverManager.getConnection(url,name,password);
+                connection = DriverManager.getConnection(url +
+                        "?user=" + name +
+                        "&password=" + password +
+                        "&useUnicode=true&characterEncoding=utf-8");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {

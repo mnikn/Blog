@@ -80,4 +80,12 @@ public class Article {
     public void setLabels(List<String> labels) {
         this.labels = labels;
     }
+
+    public String getLabelString(){
+        String str = "";
+        for(String label : labels){
+            str += label + ",";
+        }
+        return str;
+    }
 }
