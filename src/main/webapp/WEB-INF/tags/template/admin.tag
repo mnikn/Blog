@@ -18,6 +18,10 @@
             $("#post-article-button").click(function(){
                 window.location = location.origin + "/admin/article/post";
             });
+            $("#manage-article-button").click(function(){
+                window.location = location.origin + "/admin/article/list";
+            });
+
 
             $("#article-manage").mouseenter(function(){
                 $("#article-items").slideToggle("fast");
@@ -39,7 +43,7 @@
                     <li >文章管理</li>
                     <div id="article-items" hidden="hidden">
                         <li id="post-article-button">发布文章</li>
-                        <li>管理文章</li>
+                        <li id="manage-article-button">管理文章</li>
                         <li>草稿</li>
                     </div>
                 </div>

@@ -26,6 +26,8 @@ public class ArticlePostServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("types", AccountManager.getTypes());
         req.setAttribute("labels", AccountManager.getLabelTypes());
+
+        req.setCharacterEncoding("GBK");
         req.getRequestDispatcher("/WEB-INF/jsp/admin/articlePost.jsp")
                 .forward(req,resp);
     }
@@ -33,7 +35,7 @@ public class ArticlePostServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Article article = new Article();
-        article.setTitle(req.getParameter("article-title"));
+        article.setTitle(new String(req.getParameter("article-title").getBytes("ISO8859_1"),"GB2312"));
         article.setType(req.getParameter("article-type"));
         article.setMdContent(req.getParameter("article-content"));
         article.setMdContent(req.getParameter("article-content"));

@@ -32,6 +32,7 @@ public class ArticleDao {
     }
 
     public static void updateTypes(){
+        AccountManager.getTypes().clear();
         Set<String> set = AccountManager.getTypes();
         for(Article article : getAllArticles()) {
             set.add(article.getType());
@@ -39,6 +40,7 @@ public class ArticleDao {
     }
 
     public static void updateLabelTypes(){
+        AccountManager.getLabelTypes().clear();
         Set<String> labels = AccountManager.getLabelTypes();
         ResultSet resultSet = DbUtils.executeQuery("SELECT article_id,label FROM blog.article INNER JOIN " +
                 "blog.label ON blog.article.id = blog.label.article_id");
@@ -85,6 +87,14 @@ public class ArticleDao {
                             + "\"" + label + "\"" + ");");
         }
         AccountManager.getTypes().add(article.getType());
+        updateLabelTypes();
+    }
+
+    public static void deleteArticle(long id){
+        DbUtils.executeDataChange("DELETE FROM blog.label WHERE article_id = " + id);
+        DbUtils.executeDataChange("DELETE FROM blog.article WHERE id = " + id);
+
+        updateTypes();
         updateLabelTypes();
     }
 
