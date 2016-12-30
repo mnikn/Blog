@@ -73,13 +73,19 @@ public class ArticleDao {
     }
 
     public static void insertArticle(Article article){
-        int insertId = DbUtils.executeDataChange(
+        DbUtils.executeDataChange(
                 "INSERT INTO blog.article " +
                         "(intro,md_content,html_content,title,type,created_at)" +
                         " VALUES " + valueString(article));
+        for(String label : article.getLabels()){
+            DbUtils.executeDataChange(
+                    "INSERT INTO blog.label " +
+                            "(article_id,label)" +
+                            " VALUES " + "(" + getLastArticleId() + ","
+                            + "\"" + label + "\"" + ");");
+        }
         AccountManager.getTypes().add(article.getType());
         updateLabelTypes();
-        System.out.println("insertId: " + insertId);
     }
 
     private static Article findArticle(ResultSet resultSet){
@@ -138,5 +144,16 @@ public class ArticleDao {
                 "\"" +
                 new SimpleDateFormat("yyyy-MM-dd").format(article.getCreatedAt()) +
                 "\"" + ");";
+    }
+
+    private static long getLastArticleId(){
+        ResultSet resultSet = DbUtils.executeQuery("SELECT * FROM blog.article");
+        try {
+            resultSet.last();
+            return resultSet.getLong("id");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

@@ -1,6 +1,8 @@
 package admin;
 
 import db.AccountManager;
+import db.ArticleDao;
+import model.Article;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
 
 /**
  * @author zhengzhizhao
@@ -24,5 +28,18 @@ public class ArticlePostServlet extends HttpServlet{
         req.setAttribute("labels", AccountManager.getLabelTypes());
         req.getRequestDispatcher("/WEB-INF/jsp/admin/articlePost.jsp")
                 .forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Article article = new Article();
+        article.setTitle(req.getParameter("article-title"));
+        article.setType(req.getParameter("article-type"));
+        article.setMdContent(req.getParameter("article-content"));
+        article.setMdContent(req.getParameter("article-content"));
+        article.setLabels(Arrays.asList(req.getParameter("article-labels").split(",")));
+        article.setCreatedAt(GregorianCalendar.getInstance().getTime());
+        ArticleDao.insertArticle(article);
+        doGet(req,resp);
     }
 }
