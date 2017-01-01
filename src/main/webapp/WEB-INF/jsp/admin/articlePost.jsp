@@ -4,6 +4,9 @@
 <template:admin htmlTitle="admin">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="<c:url value="/resources/stylesheet/simplemde.min.css"/>" />
+    <script src="<c:url value="/resources/javascript/simplemde.min.js"/>"></script>
     <style>
         form {
             display: flex;
@@ -60,6 +63,9 @@
             <input type="button" id="label-button" value="选择">
         </label>
         <textarea name="article-content">${article.mdContent}</textarea>
+        <script>
+            var simpleMDE = new SimpleMDE();
+        </script>
         <input type="submit" name="Submit">
     </form>
 

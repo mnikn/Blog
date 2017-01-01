@@ -30,7 +30,6 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Article> articles;
 
-
         if(req.getParameter("type") != null){
             articles = ArticleDao.getArticlesByType(req.getParameter("type"));
         }

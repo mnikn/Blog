@@ -1,3 +1,3 @@
 <template:admin htmlTitle="admin">
-    Dock
+    最近发布:
 </template:admin>
