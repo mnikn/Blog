@@ -25,14 +25,22 @@
         <c:forEach items="${articles}" var="article">
             <tr>
                 <td align="center">${article.id}</td>
-                <td>${article.title}</td>
+                <td align="center">${article.title}</td>
                 <td align="center">${article.type}</td>
-                <td>
-                    <c:forEach items="${article.labels}" var="label">
-                        label,
+                <td align="center">
+                    <c:forEach items="${article.labels}" var="label" varStatus="status">
+                        <c:choose>
+                            <c:when test="${status.last}">
+                                ${label}
+                            </c:when>
+                            <c:otherwise>
+                                ${label},
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </td>
-                <td><a href="<c:url value="/admin/article/post?id=${article.id}"/>">编辑</a>,
+                <td align="center">
+                    <a href="<c:url value="/admin/article/post?id=${article.id}"/>">编辑</a>,
                     <a href="<c:url value="/admin/article/list?delete_id=${article.id}"/>">删除</a>
                 </td>
             </tr>

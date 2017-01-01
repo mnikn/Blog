@@ -9,57 +9,28 @@ import java.sql.*;
 public class DbUtils {
     private static Connection connection;
     private static Statement statement;
-    public static Connection getConnection(){
-        if(connection == null){
-            String url = "jdbc:mysql://localhost:3306/mysql";
-            String name = "mnikn";
-            String password = "82193124Mnikn";
 
-            String driver = "com.mysql.jdbc.Driver";
-            try {
-                Class.forName(driver);
-                connection = DriverManager.getConnection(url +
-                        "?user=" + name +
-                        "&password=" + password +
-                        "&useUnicode=true&characterEncoding=utf-8");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return connection;
-    }
+    static {
+        String url = "jdbc:mysql://localhost:3306/mysql";
+        String name = "mnikn";
+        String password = "82193124Mnikn";
 
-    public static Statement getStatement(){
-        if(statement == null){
-            try {
-                statement = getConnection().createStatement();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return statement;
-    }
-
-    public static ResultSet executeQuery(String sql){
-        ResultSet resultSet = null;
+        String driver = "com.mysql.jdbc.Driver";
         try {
-            resultSet = getStatement().executeQuery(sql);
+            Class.forName(driver);
+            connection = DriverManager.getConnection(url +
+                    "?user=" + name +
+                    "&password=" + password +
+                    "&useUnicode=true&characterEncoding=utf-8");
+            statement = getConnection().createStatement();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return resultSet;
     }
-
-    public static int executeDataChange(String sql){
-        int changedNum = 0;
-        try{
-            changedNum = getStatement().executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return changedNum;
+    public static Connection getConnection(){
+        return connection;
     }
 
 }
